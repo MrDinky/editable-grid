@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 21 2017 г., 05:56
+-- Время создания: Май 21 2017 г., 23:47
 -- Версия сервера: 10.1.22-MariaDB
 -- Версия PHP: 7.1.4
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `last_name` text NOT NULL,
-  `city` text NOT NULL
+  `name` text,
+  `last_name` text,
+  `city` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -63,7 +63,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
