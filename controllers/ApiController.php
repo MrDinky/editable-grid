@@ -33,6 +33,9 @@ class ApiController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'get-rows' => ['POST'],
+                    'update-row' => ['POST'],
+                    'add-row' => ['POST'],
+                    'delete-row' => ['POST'],
                 ],
             ],
         ];
@@ -50,11 +53,19 @@ class ApiController extends Controller
         ];
     }
 
+    /**
+     * Get list of all users
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public function actionGetRows() {
         $rows = Users::find()->select('*')->asArray()->all();
         return $rows;
     }
 
+    /**
+     * Update row with id record, name of column and value for updating
+     * @return array
+     */
     public function actionUpdateRow() {
         $status = true;
         $post = Yii::$app->request->post();
@@ -75,6 +86,10 @@ class ApiController extends Controller
         return ['status' => $status];
     }
 
+    /**
+     * Add new record to table
+     * @return array
+     */
     public function actionAddRow() {
         $status = true;
         $id = false;
@@ -88,6 +103,10 @@ class ApiController extends Controller
         return ['status' => $status, 'id' => $id];
     }
 
+    /**
+     * Delete new record from table
+     * @return array
+     */
     public function actionDeleteRow() {
         $status = true;
         $id = Yii::$app->request->post('id', null);
